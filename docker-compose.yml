@@ -1,0 +1,10 @@
+version: "3.0"
+
+services:
+    db:
+        image: mysql
+        ports:
+            - "4545:3306"
+        environment:
+            # Password for root access
+            MYSQL_ROOT_PASSWORD: "${password}"
