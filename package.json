@@ -1,7 +1,7 @@
 {
     "name": "register-products-via-json",
     "version": "1.0.0",
-    "description": "The purpose of the API is to put the learnings of the process, async models into practice",
+    "description": "The purpose of the API is to put the learnings of the 'process,async' models into practice",
     "main": "index.js",
     "scripts": {
         "start": "nodemon app.js",

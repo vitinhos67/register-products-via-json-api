@@ -1,7 +1,6 @@
-const connection = require('../config/db/connection')
+const connection = require("../config/db/connection");
 
-exports.createTable = async function() {
-
+exports.createTable = async function () {
     const query = `CREATE TABLE IF NOT EXISTS products 
     (
         product_id INT NOT NULL AUTO_INCREMENT,
@@ -11,55 +10,41 @@ exports.createTable = async function() {
         category VARCHAR(255),
         PRIMARY KEY(product_id)
 
-    )`
+    )`;
 
-    connection.query(query, (err) => {
-
-        if(err) {
-            console.log(err)
-            return
+    connection.query(query, err => {
+        if (err) {
+            console.log(err);
+            return;
         }
-        console.log(`Tabela produtos criado com sucesso`)
+        console.log(`Tabela produtos criado com sucesso`);
+    });
+};
 
-    } )
-}
-
-
-exports.uploadProduct = async function({product_name, total_amount,price, category}) {
-
+exports.uploadProduct = async function ({product_name, total_amount, price, category}) {
     const query = `INSERT INTO products (
         product_name ,
         total_amount,
         price,
         category
-    ) VALUES (?,?,?,?)`
+    ) VALUES (?,?,?,?)`;
 
-    connection.query(query, 
-        [product_name, 
-        total_amount, 
-        price,
-        category
-    ], (err,result) => {
+    connection.query(query, [product_name, total_amount, price, category], (err, result) => {
+        if (err) {
+            console.log(err);
+            return;
+        }
+        console.log(`Produto adicionado com sucesso.`);
+    });
+};
 
-    if(err) {
-        console.log(err)
-        return 
-    }
-    console.log(`Produto adicionado com sucesso.`)
-    })
-
-
-}
-
-
-exports.showProducts = (cb) => {
-    const query = `SELECT * FROM products`
+exports.showProducts = cb => {
+    const query = `SELECT * FROM products`;
 
     connection.query(query, (err, data) => {
-        if(err) {
-            
-            return cb(err)
+        if (err) {
+            return cb(err);
         }
-        cb(null, data)
-})
-}
+        cb(null, data);
+    });
+};

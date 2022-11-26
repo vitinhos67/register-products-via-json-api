@@ -1,4 +1,2 @@
-const fs = require('fs')
-exports.clear = function() {
-    
-}
+const fs = require("fs");
+exports.clear = function () {};

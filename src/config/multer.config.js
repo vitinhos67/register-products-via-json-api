@@ -1,10 +1,8 @@
-const multer = require("multer")
+const multer = require("multer");
 const path = require("path");
 
-
-
-const dest = path.resolve(__dirname, "..", "uploads", 'data')   
-console.log(dest)
+const dest = path.resolve(__dirname, "..", "uploads", "data");
+console.log(dest);
 const options = {
     dest,
     filename: (request, file, callback) => {
@@ -14,6 +12,4 @@ const options = {
     },
 };
 
-
-
-module.exports = multer(options)
+module.exports = multer(options);
