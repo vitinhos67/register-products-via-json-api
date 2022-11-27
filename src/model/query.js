@@ -1,6 +1,6 @@
 const connection = require("../config/db/connection");
 
-exports.createTable = async function () {
+exports.createTable = function () {
     const query = `CREATE TABLE IF NOT EXISTS products 
     (
         product_id INT NOT NULL AUTO_INCREMENT,
@@ -17,7 +17,6 @@ exports.createTable = async function () {
             console.log(err);
             return;
         }
-        console.log(`Tabela produtos criado com sucesso`);
     });
 };
 
@@ -34,12 +33,12 @@ exports.uploadProduct = async function ({product_name, total_amount, price, cate
             console.log(err);
             return;
         }
-        console.log(`Produto adicionado com sucesso.`);
+        return result;
     });
 };
 
 exports.showProducts = cb => {
-    const query = `SELECT * FROM products`;
+    const query = "SELECT * FROM products";
 
     connection.query(query, (err, data) => {
         if (err) {

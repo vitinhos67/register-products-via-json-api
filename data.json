@@ -4,5 +4,17 @@
         "total_amount": 20,
         "price": 5.0,
         "category": "medicine"
+    },
+    {
+        "product_name": "Corsa",
+        "total_amount": 1,
+        "price": 20.0,
+        "category": "car"
+    },
+    {
+        "product_name": "Livro",
+        "total_amount": 20,
+        "price": 5.0,
+        "category": "Livros"
     }
 ]

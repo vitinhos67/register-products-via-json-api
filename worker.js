@@ -1,18 +1,27 @@
 const {uploadProduct} = require("./src/model/query");
-async function main(data) {
+
+function main(data) {
     try {
-        const result = await uploadProduct({
+        const createProduct = uploadProduct({
             product_name: data.product_name,
             total_amount: data.total_amount,
             price: data.price,
             category: data.category,
         });
-        if (!result) {
-            throw new Error(`O produto ${product_name} não foi adicionado`);
+        if (!createProduct) {
+            return process.send({
+                status: "miss",
+                message: `O produto ${data.product_name} não foi adicionado, (verifique se seus campos são validos)`,
+            });
         }
+
+        process.send({
+            message: `O produto: ${data.product_name} foi adicionado com sucesso.`,
+            status: "success",
+        });
     } catch (error) {
         return error;
     }
 }
 
-process.on("message", main);
+process.once("message", main);

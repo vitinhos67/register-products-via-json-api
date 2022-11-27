@@ -1,9 +1,10 @@
 const express = require("express");
+
 const app = express();
 const connection = require("./src/config/db/connection");
 const {createTable} = require("./src/model/query");
 const {router} = require("./router");
-const {errors} = require("./src/middlewares/error");
+const errorHandler = require("./src/middlewares/error");
 
 connection.connect(err => {
     if (err) {
@@ -11,12 +12,11 @@ connection.connect(err => {
         return;
     }
 
-    console.log(`Database conected.`);
+    console.log("Database conected.");
 });
 
-app.use(errors);
 app.use(router);
-
+app.use(errorHandler);
 app.listen(3000, async (req, res) => {
     try {
         await createTable();
