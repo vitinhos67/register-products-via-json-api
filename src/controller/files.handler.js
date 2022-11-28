@@ -3,7 +3,7 @@ const path = require("path");
 const async = require("async");
 const cp = require("child_process");
 const {showProducts} = require("../model/query");
-const {clear} = require("../middlewares/clear-dir-upload");
+const { clear } = require("../functions/clear-dir-upload");
 const NotFoundError = require("../err/NotFoundError");
 const InternalError = require("../err/InternalError");
 

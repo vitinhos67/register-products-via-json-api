@@ -1,8 +1,8 @@
-const {uploadProduct} = require("./src/model/query");
+const {addProduct} = require("./src/model/query");
 
 function main(data) {
     try {
-        const createProduct = uploadProduct({
+        const createProduct = addProduct({
             product_name: data.product_name,
             total_amount: data.total_amount,
             price: data.price,

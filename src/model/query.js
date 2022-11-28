@@ -20,7 +20,7 @@ exports.createTable = function () {
     });
 };
 
-exports.uploadProduct = async function ({product_name, total_amount, price, category}) {
+exports.addProduct = async function ({product_name, total_amount, price, category}) {
     const query = `INSERT INTO products (
         product_name ,
         total_amount,
