@@ -28,22 +28,29 @@ exports.addProduct = async function ({product_name, total_amount, price, categor
         category
     ) VALUES (?,?,?,?)`;
 
-    connection.query(query, [product_name, total_amount, price, category], (err, result) => {
-        if (err) {
-            console.log(err);
-            return;
-        }
-        return result;
+    return new Promise((resolve, reject) => {
+        connection.query(query, [product_name, total_amount, price, category], (err, result) => {
+            if (err) {
+                reject(err);
+            }
+
+            resolve({
+                status: "Produto Adicionado",
+                insertId: result.insertId,
+            });
+        });
     });
 };
 
 exports.showProducts = cb => {
     const query = "SELECT * FROM products";
 
-    connection.query(query, (err, data) => {
-        if (err) {
-            return cb(err);
-        }
-        cb(null, data);
+    return new Promise((resolve, reject) => {
+        connection.query(query, (err, data) => {
+            if (err) {
+                reject(err);
+            }
+            resolve(data);
+        });
     });
 };

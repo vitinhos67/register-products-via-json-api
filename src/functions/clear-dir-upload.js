@@ -5,7 +5,7 @@ const dir = path.resolve(__dirname, "..", "uploads", "data");
 
 /**
  * @return {void}
- * 
+ *
  * Tem como objetivo limpar a pasta src/uploads/data
  */
 

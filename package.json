@@ -6,7 +6,8 @@
     "scripts": {
         "start": "nodemon server.js",
         "prettier:write": "npx prettier --write .",
-        "test": "jest"
+        "test": "jest",
+        "watch": "jest --watchAll"
     },
     "keywords": [],
     "author": "",

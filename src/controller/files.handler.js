@@ -3,9 +3,10 @@ const path = require("path");
 const async = require("async");
 const cp = require("child_process");
 const {showProducts} = require("../model/query");
-const { clear } = require("../functions/clear-dir-upload");
+const {clear} = require("../functions/clear-dir-upload");
 const NotFoundError = require("../err/NotFoundError");
 const InternalError = require("../err/InternalError");
+const Products = require("../model/Products");
 
 module.exports = {
     async create(req, res, next) {
@@ -77,12 +78,11 @@ module.exports = {
     },
     async showProducts(req, res, next) {
         try {
-            showProducts((err, data) => {
-                if (err) {
-                    next(err);
-                }
-                return res.status(200).json(data);
-            });
+
+            const products = await Products.show()
+
+            return res.status(200).json(products)
+
         } catch (error) {
             next(error);
         }

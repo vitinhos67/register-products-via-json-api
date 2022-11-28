@@ -4,33 +4,31 @@ A API consiste em mandar um arquivo JSON para a rota /file e cadastrar produtos 
 
 <hr>
 
-
 Para rodar o projeto e necessario ter o Docker ou algum servidor local do mysql e adiciona-lo no arquivo .env
+
 ```
 host: <hospedeiro>
 user: <usuario>
 password: <senha>
-database: <nome_database> 
+database: <nome_database>
 port: <porta>
 ```
 
-
-Caso optar pelo docker, utilize o docker compose com o comando abaixo para subir o servidor 
+Caso optar pelo docker, utilize o docker compose com o comando abaixo para subir o servidor
 
 ```
 // Como usuario root
-docker compose --env-file .env up -d 
+docker compose --env-file .env up -d
 
 //como usuario sem privilegios
-sudo docker compose --env-file .env up -d  
+sudo docker compose --env-file .env up -d
 ```
-
-
 
 Com o servidor MySQL de pé, basta instalar os modulos e logo após inicializar a API.
+
 ```
 // baixa os modulos necessarios
-npm install 
+npm install
 // iniciar o servidor
-npm start   
+npm start
 ```
