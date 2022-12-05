@@ -1,6 +1,18 @@
-# Registrar Produtos via Json-File
+# Registrar Produtos via JSON
 
-A API consiste em mandar um arquivo JSON para a rota /file e cadastrar produtos fictícios via um arquivo JSON. O objetivo e colocar em pratica os metodos nativos do Node, "Async, Process" e também utilizar o Multer para trabalhar com o upload de arquivos,
+
+## Sobre
+A API possibilita ao vendedor cadastrar seus produtos através de uma lista em um arquivo JSON ou através do corpo da requisição, basta mandar todos dados corretamentes.
+
+
+O objetivo e colocar em pratica os metodos estudados por mim. Eles são,  async, child_process, multer e também a implementação de testes (Jest).
+
+## Feito com
+
+- [Node.js](https://nodejs.org/pt-br/) - JavaScript runtime
+- [Express](https://expressjs.com/pt-br/) - O framework web utilizado
+- [MySQL](https://www.mysql.com/) - Base de dados Relacional
+- [NPM](https://www.npmjs.com/) - Gerenciador de pacotes e dependências
 
 <hr>
 

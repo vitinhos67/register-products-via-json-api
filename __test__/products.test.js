@@ -2,7 +2,8 @@ require("iconv-lite").encodingExists("foo");
 const Products = require("../src/model/Products");
 
 describe("Testa os metodos da classe Products", () => {
-    it("addProcuct deve retornar undefined", async () => {
+    
+    it("addProcuct deve retornar undefined caso seja sucesso", async () => {
         const result = new Products({
             product_name: "Veja",
             price: 10,
@@ -17,7 +18,7 @@ describe("Testa os metodos da classe Products", () => {
     });
 
 
-    it("show deve retornar um array de valores", async () => {
+    it("show deve retornar um objeto de valores para sucesso", async () => {
 
 
         const result = await Products.show()
